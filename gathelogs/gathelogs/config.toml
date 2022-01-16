@@ -1,0 +1,108 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+paginate = "10" # Number of posts per page
+title = "GatheLogs"
+theme = "mainroad"
+disqusShortname = "" # Enable Disqus comments by entering your Disqus shortname
+googleAnalytics = "" # Enable Google Analytics by entering your tracking id
+
+# Setting for code block high light
+pygmentsUseClasses = false
+pygmentsCodefences = true
+
+hasCJKLanguage = true
+summaryLength = 135
+
+[author]
+    name = "Gatheluck"
+    bio = "ML/MLOps Engineer. Developing ML tools that are robust, reliable and ready for real-world deployment."
+    avatar = "img/icon.png"
+
+[Params]
+    description = "MLエンジニアの諸行無常の日々記" # Site description. Used in meta description
+    copyright = "Yoshihiro Fukuhara (aka Gatheluck)" # Footer copyright holder, otherwise will use site title
+    opengraph = true # Enable OpenGraph if true
+    schema = true # Enable Schema
+    twitter_cards = true # Enable Twitter Cards if true
+    readmore = false # Show "Read more" button in list if true
+    authorbox = true # Show authorbox at bottom of pages if true
+    toc = true # Enable Table of Contents
+    pager = true # Show pager navigation (prev/next links) at the bottom of pages if true
+    post_meta = ["date", "categories"] # Order of post meta information
+    mainSections = ["posts"] # Specify section pages to show on home page and the "Recent articles" widget
+    dateformat = "2006-01-02" # Change the format of dates
+    mathjax = true # Enable MathJax
+    mathjaxPath = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js" # Specify MathJax path
+    mathjaxConfig = "TeX-AMS-MML_HTMLorMML" # Specify MathJax config
+    googleFontsLink = "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" # Load Google Fonts
+    # googleFontsLink = "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" # Load Google Fonts
+    customCSS = [
+        "css/code.css",
+        "css/code-title.css",
+        "css/header.css",
+        "css/link.css",
+        "css/tag.css",
+    ] # Include custom CSS files
+    # customJS = ["js/hoge.js"] # Include custom JS files
+
+  # DEPRECATED PARAMS
+    subtitle = "" # Deprecated in favor of .Site.Params.logo.subtitle
+    highlightColor = "#b7180c" # Deprecated in favor of .Site.Params.style.vars.highlightColor
+
+[Params.style.vars]
+    highlightColor = "#b7180c" # Override highlight color
+
+    # Override font-family sets. Secondary font-family set responsible for pre, code, kbd, and samp tags font
+    # Take care of different quotes OR escaping symbols in these params if necessary
+    fontFamilyPrimary = "'Noto Sans JP', Helvetica, Arial, sans-serif"
+    # fontFamilyPrimary = "'Open Sans', Helvetica, Arial, sans-serif"
+    fontFamilySecondary = "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace"
+
+[Params.logo]
+    image = "img/gl-logo.jpg" # Logo image. Path relative to "static"
+    title = "GatheLogs" # Logo title, otherwise will use site title
+    subtitle = "MLエンジニアの諸行無常の日々記" # Logo subtitle
+
+[Params.thumbnail]
+    visibility = ["list", "post"] # Control thumbnail visibility
+
+[Params.sidebar]
+    home = "right" # Configure layout for home page
+    list = "right"  # Configure layout for list pages
+    single = false # Configure layout for single pages
+    # Enable widgets in given order
+    widgets = [
+        "recent",
+        "categories",
+        "taglist",
+        "social",
+    ]
+    # alternatively "ddg-search" can be used, to search via DuckDuckGo
+
+[Params.widgets]
+    recent_num = 5 # Set the number of articles in the "Recent articles" widget
+    categories_counter = false # Enable counter for each category in "Categories" widget
+    tags_counter = false # Enable counter for each tag in "Tags" widget
+
+[Params.widgets.social]
+    github = "gatheluck"
+    linkedin = "yoshihiro-fukuhara-01b329136"
+    twitter = "gatheluck"
+    # Enable parts of social widget
+    # facebook = "username"
+    # instagram = "username"
+    # telegram = "username"
+    # gitlab = "username"
+    # bitbucket = "username"
+    # email = "example@example.com"
+
+# Custom social links
+# [[Params.widgets.social.custom]]
+#   title = "Youtube"
+#   url = "https://youtube.com/user/username"
+#   icon = "youtube.svg" # Optional. Path relative to "layouts/partials"
+
+[[Params.widgets.social.custom]]
+    title = "Home Page"
+    url = "https://gatheluck.net"
+    # icon = "home.svg"

@@ -1,0 +1,7 @@
+.widget-taglist__link {
+    text-transform: lowercase;
+}
+
+.tags__list .tags__item {
+    text-transform: lowercase;
+}
