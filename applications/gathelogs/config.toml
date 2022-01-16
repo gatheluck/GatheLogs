@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "https://ddu5x5d8mh615.cloudfront.net"
 languageCode = "en-us"
 paginate = "10" # Number of posts per page
 title = "GatheLogs"
