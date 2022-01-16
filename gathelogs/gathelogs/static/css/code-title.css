@@ -1,0 +1,19 @@
+.xCodeTitleBlock_title {
+    position: relative;
+    padding: 4px 12px;
+    margin: 0px 1px;
+    border-radius: 0.75em 0.75em 0.0em 0.0em; 
+    background: #383C44;
+    color: white;
+}
+.xCodeTitleBlock_code {
+    margin-top: -45px;
+}
+.xCodeTitleBlock_code pre {
+    padding-top: 40px;
+    white-space: pre-wrap;
+}
+
+.highlight pre {
+    border-radius: 0.75em; 
+}
