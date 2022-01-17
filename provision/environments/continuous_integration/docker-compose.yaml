@@ -4,10 +4,9 @@ services:
   gathelogs:
     restart: always
     image: klakegg/hugo:0.83.1-ubuntu
-    command: server
     tty: true
     user: 1000:1000
     ports:
       - "1313:1313"
     volumes:
-      - ../../../gathelogs/gathelogs:/src
+      - ../../../applications/gathelogs:/src
