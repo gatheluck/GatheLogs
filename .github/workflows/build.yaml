@@ -4,7 +4,7 @@ on: [pull_request]
 
 env:
   DOCKER_COMPOSE_DIRECTORY: provision/environments/continuous_integration
-  BUILT_DIRECTORY: applications/gathelogs/public
+  BUILT_DIRECTORY: applications/gathelogs/
 
 jobs:
   build:
@@ -17,7 +17,7 @@ jobs:
     - name: show info
       run: pwd && docker-compose --version && docker --version
 
-    # sphinx try to create directory under BUILT_DIRECTORY.
+    # hugo try to create directory under BUILT_DIRECTORY.
     # chmod is needed to resolve permission error.
     - name: add permission
       run: chmod 777 ${{ env.BUILT_DIRECTORY }}
