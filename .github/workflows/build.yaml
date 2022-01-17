@@ -1,0 +1,30 @@
+name: build
+
+on: [pull_request]
+
+env:
+  DOCKER_COMPOSE_DIRECTORY: provision/environments/continuous_integration
+  BUILT_DIRECTORY: applications/gathelogs/
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+
+    - name: show info
+      run: pwd && docker-compose --version && docker --version
+
+    # hugo try to create directory under BUILT_DIRECTORY.
+    # chmod is needed to resolve permission error.
+    - name: add permission
+      run: chmod 777 ${{ env.BUILT_DIRECTORY }}
+
+    - name: build docker
+      run: docker-compose build --parallel gathelogs
+      working-directory: ${{ env.DOCKER_COMPOSE_DIRECTORY }}
+    - name: run docker
+      run: docker-compose up gathelogs
+      working-directory: ${{ env.DOCKER_COMPOSE_DIRECTORY }}

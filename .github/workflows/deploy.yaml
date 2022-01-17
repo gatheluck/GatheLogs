@@ -1,0 +1,45 @@
+name: build
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  AWS_REGION: ap-northeast-1
+  BUILT_DIRECTORY: applications/gathelogs
+  BUILT_HTML_DIRECTORY: applications/gathelogs/public
+  DOCKER_COMPOSE_DIRECTORY: provision/environments/continuous_integration
+  S3_BUCKET: s3://gathelogs
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+
+    - name: show info
+      run: pwd && docker-compose --version && docker --version
+
+    # hugo try to create directory under BUILT_DIRECTORY.
+    # chmod is needed to resolve permission error.
+    - name: add permission
+      run: chmod 777 ${{ env.BUILT_DIRECTORY }}
+
+    - name: build docker
+      run: docker-compose build --parallel gathelogs
+      working-directory: ${{ env.DOCKER_COMPOSE_DIRECTORY }}
+    - name: run docker
+      run: docker-compose up gathelogs
+      working-directory: ${{ env.DOCKER_COMPOSE_DIRECTORY }}
+
+    - name: configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.GATHELUCK_ADMIN_AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.GATHELUCK_ADMIN_AWS_SECRET_ACCESS_KEY_ID }}
+        aws-region: ${{ env.AWS_REGION }}
+    - name: deploy to AWS S3 
+      run: aws s3 sync ${{ env.BUILT_HTML_DIRECTORY }} ${{ env.S3_BUCKET }} --delete
