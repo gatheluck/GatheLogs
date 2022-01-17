@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  gathelogs:
+    restart: always
+    image: klakegg/hugo:0.83.1-ubuntu
+    tty: true
+    user: 1000:1000
+    ports:
+      - "1313:1313"
+    volumes:
+      - ../../../applications/gathelogs:/src
