@@ -1,4 +1,4 @@
-name: build
+name: deploy
 
 on:
   push:
@@ -34,6 +34,9 @@ jobs:
     - name: run docker
       run: docker-compose up gathelogs
       working-directory: ${{ env.DOCKER_COMPOSE_DIRECTORY }}
+    - name: show built files
+      run: tree .
+      working-directory: ${{ env.BUILT_HTML_DIRECTORY }}
 
     - name: configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
