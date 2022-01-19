@@ -17,6 +17,9 @@ jobs:
     - name: checkout
       uses: actions/checkout@v2
 
+    - name: update submodules
+      run: git submodule update --remote
+
     - name: show info
       run: pwd && docker-compose --version && docker --version
 
