@@ -21,7 +21,11 @@ data "aws_iam_policy_document" "gathelogs" {
         effect = "Allow"
         principals {
             type = "AWS"
-            identifiers = [aws_cloudfront_origin_access_identity.gathelogs.iam_arn]
+            # NOTE: Following is not secure way. But currently Lambda@Edge is needed to realize it.
+            # https://qiita.com/kottyan/items/12b6b062fdba182b0785
+            identifiers = ["*"]
+            # Ideally speaking, it shuld be like bellow.
+            # identifiers = [aws_cloudfront_origin_access_identity.gathelogs.iam_arn]
         }
         actions = [
             "s3:GetObject"
