@@ -19,9 +19,11 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v2
+      with:
+        submodules: recursive
 
     - name: update submodules
-      run: git submodule update --remote
+      run: git submodule update --remote --recursive
 
     - name: show info
       run: pwd && docker-compose --version && docker --version
