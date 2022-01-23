@@ -1,4 +1,4 @@
-baseURL = "https://ddu5x5d8mh615.cloudfront.net"
+baseURL = "http://gathelogs.s3-website-ap-northeast-1.amazonaws.com"
 languageCode = "en-us"
 paginate = "10" # Number of posts per page
 title = "GatheLogs"

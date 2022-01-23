@@ -1,0 +1,3 @@
+[submodule "applications/gathelogs/themes/mainroad"]
+	path = applications/gathelogs/themes/mainroad
+	url = git@github.com:Vimux/Mainroad.git
